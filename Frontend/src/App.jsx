@@ -14,7 +14,7 @@ const App = () => {
     setError(null);
 
     try {
-    const response = await fetch('https://makeaibyking.onrender.com/api/content', {
+    const response = await fetch('https://makeaibyking.onrender.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
