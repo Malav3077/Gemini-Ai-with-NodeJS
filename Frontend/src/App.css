@@ -1,0 +1,161 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* Overall app container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1c1c1c, #0f4c81);
+  /* Black and deep blue gradient */
+  font-family: 'Poppins', sans-serif;
+  color: #e0f2f1;
+  /* Light teal text */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  /* Ensure footer positioning works */
+}
+
+/* AI title style */
+.app-title {
+  font-size: 3.5rem;
+  color: #e0f2f1;
+  /* Light teal for title text */
+  margin-bottom: 40px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  /* Subtle shadow */
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+
+/* Input container style */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Input field styling */
+.input-field {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid #004d40;
+  /* Deep teal border */
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  /* Dark grey background */
+  color: #e0f2f1;
+  /* Light teal text */
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  /* Darker shadow */
+}
+
+/* Input hover and focus effect */
+.input-field:focus {
+  border-color: #00796b;
+  /* Teal border on focus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Submit button styling */
+.submit-btn {
+  width: 100%;
+  max-width: 200px;
+  padding: 12px;
+  background-color: #00796b;
+  /* Teal button background */
+  color: #ffffff;
+  /* White text */
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  /* Darker shadow */
+}
+
+/* Button hover effect */
+.submit-btn:hover {
+  background-color: #004d40;
+  /* Darker teal on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+/* AI result container */
+.result {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #e0f2f1;
+  /* Light teal for result text */
+  width: 100%;
+  max-width: 500px;
+  background: rgba(0, 77, 64, 0.1);
+  /* Light teal background */
+  padding: 20px;
+  border: 1px solid rgba(0, 77, 64, 0.3);
+  /* Deep teal border */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  text-align: left;
+  overflow: auto;
+  max-height: 300px;
+  /* Adjust height as needed */
+}
+
+/* Result content transitions */
+.result:empty {
+  display: none;
+}
+
+.result:not(:empty) {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error message style */
+.error {
+  color: #ff6f61;
+  /* Light coral for errors */
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Footer with name */
+/* Footer with name */
+.footer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+  color: #e0d4d4df;
+  text-align: center;
+  padding: 10px;
+  border-radius: 0 0 5px 5px;
+  z-index: 1000;
+
+}
