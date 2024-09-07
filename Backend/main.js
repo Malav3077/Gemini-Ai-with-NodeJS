@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://your-frontend-app-name.onrender.com',
+  origin: process.env.FRONTEND_URL || 'https://makeaibyking.onrender.com',
   methods: ['GET', 'POST'],
 }));
 
