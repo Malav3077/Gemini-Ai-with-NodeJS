@@ -14,19 +14,25 @@ const App = () => {
 
     try {
       const response = await fetch('https://makeaibyking.onrender.com/api/content', {
+      // const response = await fetch('http://localhost:3000/api/content', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ question: input }),
+        
       });
-
+      
+      
+      
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.error || 'Unknown error'}`);
       }
 
       const data = await response.json();
+      console.log(response)
+
       setResult(data.result);
     } catch (error) {
       console.error('Full error:', error);
@@ -35,6 +41,7 @@ const App = () => {
       setIsLoading(false);
     }
   };
+
 
   return (
     <div className="app-container">
