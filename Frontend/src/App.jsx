@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 const App = () => {
   const [input, setInput] = useState('');
   const [result, setResult] = useState('');
@@ -14,36 +14,30 @@ const App = () => {
     setError(null);
 
     try {
-      const response = await fetch(`${API_URL}/api/content`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ question: input }),
-      });
+    const response = await fetch('http://localhost:3000/api/content', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+  },
+  body: JSON.stringify({ question: input }),
+});
 
-      const data = await response.json();
-      setResult(data.result);
-    } catch (error) {
-      setError(`Error occurred: ${error.message}`);
-    } finally {
-      setIsLoading(false);
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.error || 'Unknown error'}`);
     }
-  };
 
-  const testAPI = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/api/test');
-      const data = await response.json();
-      alert('API test successful. Check console for details.');
-    } catch (error) {
-      alert('API test failed. Check console for details.');
-    }
-  };
+    const data = await response.json();
+    setResult(data.result);
+  } catch (error) {
+    console.error('Full error:', error);
+    setError(`Error occurred: ${error.message}`);
+  } finally {
+    setIsLoading(false);
+  }
+};
+ 
 
   return (
     <div className="app-container">

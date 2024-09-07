@@ -10,10 +10,11 @@ const app = express();
 
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'https://makeaibyking.onrender.com',
-  methods: ['GET', 'POST'],
-}));
+ app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST'],
+
+ }));
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
