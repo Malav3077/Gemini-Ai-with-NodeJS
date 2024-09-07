@@ -11,8 +11,9 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
  app.use(cors({
-     origin: ['https://ui-makeaibyking.onrender.com', 'http://localhost:5173'],
-    methods: ['GET', 'POST'],
+     origin: ['https://ui-makeaibyking.onrender.com'],
+     methods: ['GET', 'POST'],
+     allowedHeaders: ['Content-Type', 'Authorization'],
 
  }));
 
