@@ -14,7 +14,7 @@ const App = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3000/api/content', {
+      const response = await fetch(`${API_URL}/api/content`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
